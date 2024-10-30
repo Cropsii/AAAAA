@@ -1,0 +1,198 @@
+<html>
+  <head>
+    <base />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Иван Петров - Веб-разработчик</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+      }
+
+      body {
+        background: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        background: #2c3e50;
+        color: white;
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      .profile-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+      }
+
+      .profile-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 5px solid #3498db;
+      }
+
+      .contact-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin: 2rem 0;
+      }
+
+      .contact-button {
+        padding: 10px 20px;
+        background: #3498db;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+
+      .contact-button:hover {
+        background: #2980b9;
+      }
+
+      .qr-section {
+        text-align: center;
+        margin: 2rem 0;
+      }
+
+      .skills-section {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin: 2rem 0;
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .portfolio-item {
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (max-width: 768px) {
+        .profile-section {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Прохоров Максим</h1>
+        <p>Веб-разработчик | UI/UX Дизайнер</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="profile-section">
+        <div class="profile-image">
+          <img
+            src="profile.jpg"
+            alt=""
+            width="200"
+            height="200"
+            style="border-radius: 50%; object-fit: cover"
+          />
+        </div>
+        <div class="profile-info">
+          <h2>Обо мне</h2>
+          <p>
+            Профессиональный веб-разработчик с 5-летним опытом создания
+            современных веб-приложений. Специализируюсь на Frontend разработке и
+            UI/UX дизайне.
+          </p>
+        </div>
+      </section>
+
+      <section class="contact-links">
+        <a href="tel:+79001234567" class="contact-button">📞 Позвонить</a>
+        <a href="mailto:ivan@example.com" class="contact-button">✉️ Написать</a>
+      </section>
+
+      <section class="qr-section">
+        <h2>Мой QR код</h2>
+        <img
+          src="qr-code.png"
+          alt="QR код для быстрого доступа к веб-сайту Ивана Петрова"
+          width="200"
+          height="200"
+        />
+      </section>
+
+      <section class="skills-section">
+        <h2>Навыки</h2>
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <h3>Frontend Разработка</h3>
+            <p>HTML5, CSS3, JavaScript, React</p>
+          </div>
+          <div class="portfolio-item">
+            <h3>UI/UX Дизайн</h3>
+            <p>Figma, Adobe XD, Sketch</p>
+          </div>
+          <div class="portfolio-item">
+            <h3>Backend Разработка</h3>
+            <p>Node.js, Python, PHP</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p style="text-align: center; padding: 2rem 0">
+          © 2024 Иван Петров. Все права защищены.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        });
+
+        const sections = document.querySelectorAll("section");
+        sections.forEach((section) => {
+          section.style.opacity = "0";
+          section.style.transform = "translateY(20px)";
+          section.style.transition = "all 0.5s ease-in-out";
+          observer.observe(section);
+        });
+      });
+    </script>
+  </body>
+</html>
